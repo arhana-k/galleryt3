@@ -18,7 +18,7 @@ export const db = drizzle(sql, { schema });
 //   conn: postgres.Sql | undefined;
 // };
 
-// const conn = globalForDb.conn ?? postgres(env.postgres_url);
+// const conn = globalForDb.conn ?? postgres(env.POSTGRES_URL);
 // if (env.NODE_ENV !== "production") globalForDb.conn = conn;
 
 // export const db = drizzle(conn, { schema });
