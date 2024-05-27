@@ -1,34 +1,39 @@
 // import Link from "next/link";
+import { desc } from "drizzle-orm";
 import { db } from "~/server/db";
 
 
-const mockUrls = [
-  "https://utfs.io/f/e009ed53-cdcf-44e2-b757-ba0c2731f307-406im7.jpg",
-  "https://utfs.io/f/27512ae4-468c-461c-9279-204d93bda330-3t8v1k.jpg",
-];
+// const mockUrls = [
+//   "https://utfs.io/f/e009ed53-cdcf-44e2-b757-ba0c2731f307-406im7.jpg",
+//   "https://utfs.io/f/27512ae4-468c-461c-9279-204d93bda330-3t8v1k.jpg",
+// ];
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
-const mockImgs = mockUrls.map((url, index)=> ({
-  id : index + 1,
-  url,
-}));
+// const mockImgs = mockUrls.map((url, index)=> ({
+//   id : index + 1,
+//   url,
+// }));
 
 export default async function HomePage() {
 
-  const posts = await db.query.posts.findMany()
+  const images = await db.query.images.findMany({
+    orderBy: (model, { desc }) => desc(model.id),
+  })
 
-  console.log(posts);
+  // console.log(posts);
 
   return (
     <main className="">
       <div className="flex flex-wrap gap-4">
-        {posts.map((post) => (
+        {/* {posts.map((post) => (
           <div key={post.id}>{post.name}</div>
-        ))}
-        {[...mockImgs,...mockImgs,...mockImgs, ...mockImgs].map((image, index) => (
-          <div key={image.id + "-" + index} className="w-48 ">
+        ))} */}
+        {[...images,...images,...images, ...images].map((image, index) => (
+          <div key={image.id + "-" + index} className="flex w-48 flex-col">
+            
             <img src={image.url} />
+            <div>{ image.name}</div>
           </div>
         ))}
       </div>
