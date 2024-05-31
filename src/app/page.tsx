@@ -2,6 +2,7 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { error } from "console";
 import { desc } from "drizzle-orm";
+import Image from "next/image";
 import { db } from "~/server/db";
 import { getMyImages } from "~/server/queries";
 
@@ -17,20 +18,28 @@ async function Images() {
 const images = await getMyImages();
 
   return (
-    
-    <div className="flex flex-wrap gap-4">
-    {/* {posts.map((post) => (
-      <div key={post.id}>{post.name}</div>
-    ))} */}
-    {images.map((image) => (
-      <div key={image.id} className="flex w-48 flex-col">
-        
-        <img src={image.url} />
-        <div>{ image.name}</div>
-      </div>
-    ))}
-  </div>
-  )
+
+    // {posts.map((post) => (
+    //   <div key={post.id}>{post.name}</div>
+    // ))} 
+   
+    <div className="flex flex-wrap justify-center gap-4 p-4">
+      {images.map((image) => (
+        <div key={image.id} className="flex h-48 w-48 flex-col">
+          {/* <Link href={`/img/${image.id}`}> */}
+            <Image
+              src={image.url}
+              style={{ objectFit: "contain" }}
+              width={192}
+              height={192}
+              alt={image.name}
+            />
+          {/* </Link> */}
+          <div>{image.name}</div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 // const mockImgs = mockUrls.map((url, index)=> ({
