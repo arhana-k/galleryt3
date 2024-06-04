@@ -2,6 +2,7 @@ import "server-only";
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
 import { and, eq } from "drizzle-orm";
+import { images } from "./db/schema";
 
 export async function getMyImages(){
     const user = auth();
@@ -28,6 +29,7 @@ export async function getImage(id: number) {
   if (!image) throw new Error("Image not found");
 
   if(image.userId!== user.userId) throw new Error("Unauthorized");
+  
   return image;
   
 }

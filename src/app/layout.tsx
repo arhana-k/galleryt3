@@ -6,6 +6,9 @@ import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@c
 
 
 import { GeistSans } from "geist/font/sans";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import { ourFileRouter } from "./api/uploadthing/core";
 
 export const metadata = {
   title: "T3 Gallery",
@@ -23,6 +26,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
+      <NextSSRPlugin>
+        routerConfig = {extractRouterConfig(ourFileRouter)}
+      </NextSSRPlugin>
       <body className={`{styles.geistFont} flex flex-col gap-4`}>
         <TopNav/>
         {children}
