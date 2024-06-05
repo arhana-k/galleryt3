@@ -12,7 +12,7 @@
 - [x] 'taint' (server-only)
 - [x] use Next/Image component
 - [x] error management (w/ sentry)
-- [ ] routing/img page(parallel route)
+- [x] routing/img page(parallel route)
 - [ ] delete button (w/ server actions)
 - [ ] analytics(posthog)
 - [ ] ratelimiting(upstash)
