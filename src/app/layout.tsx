@@ -29,7 +29,7 @@ export default function RootLayout({
       <NextSSRPlugin>
         routerConfig = {extractRouterConfig(ourFileRouter)}
       </NextSSRPlugin>
-      <body className={`{styles.geistFont}`}>
+      <body className={`{styles.geistFont} dark`}>
         <div className="h-screen grid grid-rows-[auto, 1fr]">
         <main className="overflow-y-scroll">
           <TopNav/>
