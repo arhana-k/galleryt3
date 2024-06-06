@@ -13,9 +13,10 @@
 - [x] use Next/Image component
 - [x] error management (w/ sentry)
 - [x] routing/img page(parallel route)
-- [ ] ShadUIfy (toasts)
-- [ ] delete button (w/ server actions)
+- [x] ShadUIfy (toasts)
+- [x] update upload button to be less cringe
 - [ ] analytics(posthog)
+- [ ] delete button (w/ server actions)
 - [ ] ratelimiting(upstash)
 
 <!-- # Create T3 App -->
