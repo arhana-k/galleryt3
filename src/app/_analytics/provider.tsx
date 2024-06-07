@@ -13,7 +13,9 @@ if (typeof window !== 'undefined') {
 
 
 export function CSPostHogProvider({ children } : {children: React.ReactNode}) {
-    return <PostHogProvider client={posthog}>{children}</PostHogProvider>
+    return <PostHogProvider client={posthog}>
+            <PostHogAuthWrapper>{children}</PostHogAuthWrapper>
+           </PostHogProvider>
 }
 function PostHogAuthWrapper({ children }: { children: React.ReactNode }) {
     const auth = useAuth();
