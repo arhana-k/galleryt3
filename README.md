@@ -16,8 +16,8 @@
 - [x] ShadUIfy (toasts)
 - [x] update upload button to be less cringe
 - [x] analytics(posthog)
-- [ ] delete button (w/ server actions)
-- [ ] ratelimiting(upstash)
+- [x] delete button (w/ server actions)
+- [x] ratelimiting(upstash)
 
 <!-- # Create T3 App -->
 <!--
